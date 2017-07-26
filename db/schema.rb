@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170724154636) do
+ActiveRecord::Schema.define(version: 20170726170237) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name", null: false
@@ -23,6 +23,21 @@ ActiveRecord::Schema.define(version: 20170724154636) do
     t.string "name", null: false
   end
 
+  create_table "meetings", force: :cascade do |t|
+    t.integer "city_id"
+    t.integer "user_id"
+    t.string "name"
+    t.integer "attenders_limit", default: 0
+    t.integer "current_attenders", default: 0
+    t.integer "ticket_price", default: 0
+    t.boolean "free", default: true
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_meetings_on_city_id"
+    t.index ["user_id"], name: "index_meetings_on_user_id"
+  end
+
   create_table "places", force: :cascade do |t|
     t.integer "city_id"
     t.string "name"
@@ -33,6 +48,13 @@ ActiveRecord::Schema.define(version: 20170724154636) do
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_places_on_city_id"
     t.index [nil, "name"], name: "index_places_on_city_and_name"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
