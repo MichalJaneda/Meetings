@@ -1,0 +1,9 @@
+- if meetings.empty?
+  %h1 No meetings
+- else
+  %ul#agreements
+    - meetings.each do |meeting|
+      %li
+        %div
+          %h3= meeting.name
+          %span= meeting.place.full_address

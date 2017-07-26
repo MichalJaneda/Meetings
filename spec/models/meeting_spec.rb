@@ -13,7 +13,7 @@ RSpec.describe Meeting, type: :model do
 
   it { is_expected.to validate_presence_of(:user) }
 
-  it { is_expected.to validate_presence_of(:city) }
+  it { is_expected.to validate_presence_of(:place) }
 
   it { should validate_inclusion_of(:attenders_limit).in_range(0..1000) }
 

@@ -2,12 +2,12 @@ class Meeting < ApplicationRecord
   before_validation :check_being_free
 
   belongs_to :user
-  belongs_to :city
+  belongs_to :place
 
   validate :date_after_now
   validates :user,
             presence: true
-  validates :city,
+  validates :place,
             presence: true
   validates_inclusion_of :attenders_limit, in: 0..1000
   validates_inclusion_of :ticket_price, in: 0..200

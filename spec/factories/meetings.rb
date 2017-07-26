@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :meeting do
     user
-    city
+    place
     name { Faker::Lorem.sentence(3, false, 2) }
     attenders_limit { Faker::Number.between(2, 20) }
     current_attenders { Faker::Number.between(0, attenders_limit) }

@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170726180717) do
   end
 
   create_table "meetings", force: :cascade do |t|
-    t.integer "city_id"
+    t.integer "place_id"
     t.integer "user_id"
     t.string "name"
     t.integer "attenders_limit", default: 0
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20170726180717) do
     t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["city_id"], name: "index_meetings_on_city_id"
+    t.index ["place_id"], name: "index_meetings_on_place_id"
     t.index ["user_id"], name: "index_meetings_on_user_id"
   end
 
