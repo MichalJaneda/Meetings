@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  devise :database_authenticatable, :registerable,
+         :rememberable
+
   validates :name,
             presence: true,
             length: { maximum: 255 }
